@@ -7,8 +7,6 @@ use Illuminate\Database\Seeder;
 
 use App\Models\Technology;
 
-use App\Models\Project;
-
 class TechnologyTableSeeder extends Seeder
 {
     /**
@@ -18,16 +16,6 @@ class TechnologyTableSeeder extends Seeder
      */
     public function run()
     {
-        Technology :: factory() ->count(10) -> create() ->each(function ($technology)
-        {
-                //vado a pescare dalla tabella projects tre progetti casuali
-                $project = Project:: inRandomOrder() -> limit(3) ->get(); 
-
-                //La funzione projects() si trova all'interno del model technology
-                $technology -> projects() ->attach($project);
-
-                $technology -> save();
-
-        });
+        Technology :: factory() ->count(10) -> create();
     }
 }

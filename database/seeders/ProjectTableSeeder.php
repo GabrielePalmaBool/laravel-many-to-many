@@ -9,6 +9,8 @@ use App\Models\Project;
 
 use App\Models\Type;
 
+use App\Models\Technology;
+
 class ProjectTableSeeder extends Seeder
 {
     /**
@@ -27,6 +29,14 @@ class ProjectTableSeeder extends Seeder
 
                 //La funzione type() si trova all'interno del model project
                 $project -> type() -> associate($type);
+
+                $project -> save();
+
+                //vado a pescare dalla tabella technology tre progetti casuali
+                $technology = Technology:: inRandomOrder() -> limit(3) ->get(); 
+
+                //La funzione technologies() si trova all'interno del model project
+                $project -> technologies() ->attach($technology);
 
                 $project -> save();
         });
