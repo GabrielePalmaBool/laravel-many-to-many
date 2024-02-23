@@ -20,9 +20,9 @@ class MainController extends Controller
     public function index()
     {
         
-        $types = Type :: all();
+        $projects = Project :: all();
 
-        return view('pages.index', compact('types'));
+        return view('pages.projectList', compact('projects'));
 
     }
 
