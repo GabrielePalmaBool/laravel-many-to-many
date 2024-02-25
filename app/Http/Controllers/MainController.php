@@ -10,6 +10,8 @@ use App\Models\Project;
 
 use App\Models\Technology;
 
+use App\Http\Requests\ErorrsMessages;
+
 class MainController extends Controller
 {
     /**
@@ -68,18 +70,18 @@ class MainController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeP(Request $request)
+    public function storeP(ErorrsMessages $request)
     {
         $data = $request->all();
 
-        $type = Type :: find($data['type_id']);
-
         $newProject = new Project();
 
-        $newProject ->nome = $data['nome'];
+        $newProject ->nome_progetto = $data['nome_progetto'];
         $newProject ->img_riferimento = $data['img_riferimento'];
         $newProject ->descrizione = $data['descrizione'];
         $newProject ->data_pubblicazione = $data['data_pubblicazione'];
+
+        $type = Type :: find($data['type_id']);
     
         //creazione relazione 1 a molti
         $newProject -> type() -> associate($type);

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('technologies', function (Blueprint $table) {
             $table->id();
 
-            $table->string('nome');
+            $table->string('nome_tecnologia');
             $table->string('campo_uso')->nullable(false);
             
 

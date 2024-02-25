@@ -59,11 +59,11 @@
                     <tr>
                         <td>{{$project -> id}}</td>
                         
-                        <td>{{$project -> nome}}</td>
+                        <td>{{$project -> nome_progetto}}</td>
 
                         <td>{{$project -> type -> campo_uso}}</td>
 
-                        <td>{{$project -> type -> nome}}</td>
+                        <td>{{$project -> type -> nome_tipo}}</td>
 
                         <td>
 
@@ -79,7 +79,7 @@
 
                             @foreach ( $project -> technologies as $tec)
 
-                                {{$tec -> nome}},
+                                {{$tec -> nome_tecnologia}},
 
                             @endforeach
 

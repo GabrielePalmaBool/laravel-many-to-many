@@ -20,7 +20,7 @@
                         
                         <td>{{$technology -> id}}</td>
                         
-                        <td>{{$technology -> nome}}</td>
+                        <td>{{$technology -> nome_tecnologia}}</td>
 
                         <td> {{$technology -> campo_uso}}</td>
                     

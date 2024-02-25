@@ -17,7 +17,7 @@ class ProjectFactory extends Factory
     public function definition()
     {
         return [
-            'nome'=>fake()->name($gender = null),
+            'nome_progetto'=>fake()->name($gender = null),
             'img_riferimento'=>fake()->imageUrl(640, 480, 'projects', true),
             'descrizione'=>fake()->paragraph(),
             'data_pubblicazione'=>fake()->dateTimeBetween(),

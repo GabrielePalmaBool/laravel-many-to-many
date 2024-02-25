@@ -20,7 +20,7 @@
                     <tr>
                         <td>{{$type -> id}}</td>
 
-                        <td>{{$type -> nome}}</td>
+                        <td>{{$type -> nome_tipo}}</td>
 
                         <td>{{$type -> campo_uso}}</td>
 

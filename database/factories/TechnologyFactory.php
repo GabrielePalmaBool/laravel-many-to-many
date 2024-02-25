@@ -17,7 +17,7 @@ class TechnologyFactory extends Factory
     public function definition()
     {
         return [
-            'nome'=>fake()->name($gender = null),
+            'nome_tecnologia'=>fake()->name($gender = null),
             'campo_uso'=>fake()->hexColor(),
         ];
     }

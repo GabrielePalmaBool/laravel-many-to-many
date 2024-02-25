@@ -4,6 +4,17 @@
 @endsection
 @section('content')
 
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
+
 <h1>Nuovo progetto</h1>
 
 
@@ -37,7 +48,7 @@
 
 
                 <td>
-                    <input type="text" name="nome">
+                    <input type="text" name="nome_progetto">
                 </td>
                 <td>
                     <input class="form-control" type="file" name="img_riferimento">
@@ -55,7 +66,7 @@
 
                             <option value="{{ $type -> id}}">
 
-                                {{ $type ->nome}}
+                                {{ $type ->nome_tipo}}
 
                             </option>    
 
@@ -68,7 +79,7 @@
                   
                     @foreach ( $technologies as $technology )
 
-                        <input class="form-check-input" type="checkbox" name="tech_id[]" value="{{ $technology -> id}}"> {{ $technology ->nome}}
+                        <input class="form-check-input" type="checkbox" name="tech_id[]" value="{{ $technology -> id}}"> {{ $technology ->nome_tecnologia}}
    
                     @endforeach
 

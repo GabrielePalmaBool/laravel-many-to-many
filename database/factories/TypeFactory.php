@@ -17,7 +17,7 @@ class TypeFactory extends Factory
     public function definition()
     {
         return [
-            'nome'=>fake()->name($gender = null),
+            'nome_tipo'=>fake()->name($gender = null),
             'campo_uso'=>fake()->lexify('id-????'),
         ];
     }
