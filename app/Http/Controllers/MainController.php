@@ -17,12 +17,33 @@ class MainController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    // parte index 
+    public function indexP()
     {
         
         $projects = Project :: all();
+       
 
-        return view('pages.projectList', compact('projects'));
+        return view('pages.projects.projectList', compact('projects'));
+
+    }
+
+    public function indexTy()
+    {
+    
+        $types = Type :: all();
+        
+        return view('pages.projects.typeList', compact('types'));
+
+    }
+
+    public function indexTc()
+    {
+    
+        $technologies = Technology :: all();
+
+        return view('pages.projects.technologiesList', compact('technologies'));
 
     }
 
@@ -31,9 +52,14 @@ class MainController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createP()
     {
-        //
+
+        $types = Type :: all();
+
+        $technologies = Technology :: all();
+
+        return view('pages.add.createP',compact('types','technologies'));
     }
 
     /**
@@ -42,9 +68,29 @@ class MainController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeP(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $type = Type :: find($data['type_id']);
+
+        $newProject = new Project();
+
+        $newProject ->nome = $data['nome'];
+        $newProject ->img_riferimento = $data['img_riferimento'];
+        $newProject ->descrizione = $data['descrizione'];
+        $newProject ->data_pubblicazione = $data['data_pubblicazione'];
+    
+        //creazione relazione 1 a molti
+        $newProject -> type() -> associate($type);
+
+        $newProject -> save();
+
+        //creazione relazione molti a molti
+        $newProject -> technologies() -> attach($data['tech_id']);
+
+        return redirect() -> route('projects.projectList');
+
     }
 
     /**

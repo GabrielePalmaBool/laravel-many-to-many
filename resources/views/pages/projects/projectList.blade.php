@@ -5,7 +5,41 @@
 @section('content')
 
 <h1>Lista progetti</h1>
-    
+
+
+    <!-- tabella lista tipi,tecnologie e aggiunta nuovi progetti  -->
+    <table class="modify">
+
+        <tr>
+
+            <th>Nuovo progetto</th>
+
+            <th>Lista tipi</th>
+
+            <th>Lista tecnologie</th>
+
+        </tr>
+
+        <tr>
+
+            <td>
+                <a class="btn btn-danger" href="{{ route('projects.createProject') }}" role="button">Nuovo progetto</a>
+            </td>
+
+            <td>
+                <a class="btn btn-primary" href="{{ route('projects.typeList') }}" role="button">Tipi</a>
+            </td>
+
+            <td>
+                <a class="btn btn-success" href="{{ route('projects.technologiesList') }}" role="button">Tecnologie</a>
+            </td>
+            
+        </tr>
+
+    </table>
+
+
+    <!-- Tabella progetti -->
     <table class="project">
         
         <tr>
@@ -64,5 +98,7 @@
                     </tr>
 
         @endforeach 
+    </table>
 
+    
 @endsection
