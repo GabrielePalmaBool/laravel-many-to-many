@@ -161,8 +161,15 @@ class MainController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyP($id)
     {
-        //
+        $project = Project::find($id);
+
+        $project ->technologies() -> sync([]);
+
+        $project -> delete();
+
+        return redirect() -> route('projects.projectList');
+
     }
 }

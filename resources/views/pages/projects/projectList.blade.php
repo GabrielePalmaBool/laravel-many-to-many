@@ -53,6 +53,7 @@
             <th class="tech">Tecnologia</th>
             <th class="tech">Uso Tecnologia</th>
             <th>MODIFICA</th>
+            <th>ELIMINA</th>
         </tr>
 
         @foreach ( $projects as $project)
@@ -97,7 +98,19 @@
                         </td>
 
                         <td>
-                            <a class="btn btn-danger" href="{{ route('projects.editProject', $project -> id) }}" role="button">Modifica</a>
+                            <a class="btn btn-warning" href="{{ route('projects.editProject', $project -> id) }}" role="button">Modifica</a>
+                        </td>
+
+                        <td>
+                            
+                            <form action="{{route('projects.destroyProject', $project -> id)}}" method="POST" onsubmit="return confirm('CONFERMARE?')">
+
+                                @csrf
+                                @method('DELETE')
+
+                                <input class="btn btn-warning" type="submit" value="X" id="delBt">
+
+                            </form>
                         </td>
                     
                     </tr>
