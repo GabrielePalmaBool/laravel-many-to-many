@@ -52,6 +52,7 @@
             <th>Data Pubblicazione</th>
             <th class="tech">Tecnologia</th>
             <th class="tech">Uso Tecnologia</th>
+            <th>MODIFICA</th>
         </tr>
 
         @foreach ( $projects as $project)
@@ -67,7 +68,7 @@
 
                         <td>
 
-                        <img src="{{$project -> img_riferimento}}" alt="Girl in a jacket" width="50" height="60">
+                        <img src="{{$project -> img_riferimento}}" alt="im project" width="50" height="60">
                         
                         </td>
 
@@ -93,6 +94,10 @@
 
                             @endforeach
 
+                        </td>
+
+                        <td>
+                            <a class="btn btn-danger" href="{{ route('projects.editProject', $project -> id) }}" role="button">Modifica</a>
                         </td>
                     
                     </tr>

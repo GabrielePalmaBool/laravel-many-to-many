@@ -112,9 +112,16 @@ class MainController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editP($id)
     {
-        //
+        $project = Project::find($id);
+
+        $types = Type :: all();
+
+        $technologies = Technology :: all();
+
+        return view('pages.modify.editP',compact('types','technologies','project'));
+
     }
 
     /**
@@ -124,9 +131,28 @@ class MainController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateP(ErorrsMessages $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $project = Project::find($id);
+
+        $project ->nome_progetto = $data['nome_progetto'];
+        $project ->img_riferimento = $data['img_riferimento'];
+        $project ->descrizione = $data['descrizione'];
+        $project ->data_pubblicazione = $data['data_pubblicazione'];
+
+        $type = Type :: find($data['type_id']);
+    
+        //creazione relazione 1 a molti
+        $project -> type() -> associate($type);
+
+        $project -> save();
+
+        //creazione relazione molti a molti
+        $project -> technologies() -> sync($data['tech_id']);
+
+        return redirect() -> route('projects.projectList');
     }
 
     /**

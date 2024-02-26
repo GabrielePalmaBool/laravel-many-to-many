@@ -15,3 +15,8 @@ Route::get('/project/add/CreateProj', [MainController::class, 'createP'])->name(
 
 Route::post('/project', [MainController::class, 'storeP'])->name('projects.storeProject');
 
+
+//SEZIONE MODIFICA
+Route::get('/project/{id}', [MainController::class, 'editP'])->name('projects.editProject');
+
+Route::put('/project/{id}', [MainController::class,'updateP']) ->name('projects.updateProject');
