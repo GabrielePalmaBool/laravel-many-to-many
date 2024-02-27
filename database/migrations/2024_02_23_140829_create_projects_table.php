@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('nome_progetto');
-            $table->string('img_riferimento')-> nullable();;
+            $table->string('img_riferimento')-> nullable();
             $table->string('descrizione') -> nullable();
             $table->date('data_pubblicazione');
 

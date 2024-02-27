@@ -41,7 +41,12 @@
 
         <tr>
 
-            <form action="{{route('projects.storeProject')}}" method="POST">
+            <form action="{{route('projects.storeProject')}}"
+            
+                method="POST"
+            
+                ectype="multipart/form-data"
+            >
 
             @csrf
             @method('POST')
@@ -51,7 +56,7 @@
                     <input type="text" name="nome_progetto">
                 </td>
                 <td>
-                    <input class="form-control" type="file" name="img_riferimento">
+                    <input class="form-control" type="file" name="img_riferimento" id="img_riferimento">
                 </td>
                 <td>
                     <textarea name="descrizione" rows="3"> </textarea>

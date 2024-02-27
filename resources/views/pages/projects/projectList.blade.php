@@ -69,7 +69,7 @@
 
                         <td>
 
-                        <img src="{{$project -> img_riferimento}}" alt="im project" width="50" height="60">
+                        <img src="{{ asset('storage/'. $project -> img_riferimento)}}" alt="img project" width="50" height="60">
                         
                         </td>
 

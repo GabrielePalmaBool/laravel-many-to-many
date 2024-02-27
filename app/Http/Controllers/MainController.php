@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Storage;
+
 use App\Models\Type;
 
 use App\Models\Project;
@@ -74,10 +76,18 @@ class MainController extends Controller
     {
         $data = $request->all();
 
+        $img = $data['img_riferimento'];
+        
+        //$img_path = Storage :: disk('public') -> put('images', $img);
+
+        if ( Storage::disk('local')->put('images', $img) ) {
+            $img_path  = 'images/' . $img;
+        }
+
         $newProject = new Project();
 
         $newProject ->nome_progetto = $data['nome_progetto'];
-        $newProject ->img_riferimento = $data['img_riferimento'];
+        $newProject ->img_riferimento = $img_path;
         $newProject ->descrizione = $data['descrizione'];
         $newProject ->data_pubblicazione = $data['data_pubblicazione'];
 
