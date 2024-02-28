@@ -69,6 +69,7 @@
 
                         <td>
 
+                        <!-- Richiamo da percorso storage immagine di riferimento -->
                         <img src="{{ asset('storage/'. $project -> img_riferimento)}}" alt="img project" width="50" height="60">
                         
                         </td>

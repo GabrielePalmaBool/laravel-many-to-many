@@ -75,14 +75,17 @@ class MainController extends Controller
     public function storeP(ErorrsMessages $request)
     {
         $data = $request->all();
-        
+
+        //acquisisco file
         $img = $data['img_riferimento'];
-        
+
+        // Creo cartella images nel percorso :storage/public e inserisco file
         $img_path = Storage :: disk('public') -> put('images', $img);
 
         $newProject = new Project();
 
         $newProject ->nome_progetto = $data['nome_progetto'];
+        //associo percorso file a campo img della tabella
         $newProject ->img_riferimento = $img_path;
         $newProject ->descrizione = $data['descrizione'];
         $newProject ->data_pubblicazione = $data['data_pubblicazione'];
