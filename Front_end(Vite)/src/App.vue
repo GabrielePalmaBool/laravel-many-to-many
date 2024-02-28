@@ -29,7 +29,7 @@ export default {
             axios
                 .get(myURL)
                 .then((res) => {
-                    store.TechList = res.data;
+                    store.TechList = res.data.messages;
 
                     console.log(store.TechList);
                 })

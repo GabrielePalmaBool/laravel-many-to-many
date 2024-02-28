@@ -15,13 +15,10 @@ export default {
 
 <template>
     <div class="container">
+        <h1>Lista Tecnologie</h1>
         <div class="row row-cols-5">
             <div v-for="(tech, i) in store.TechList" :key="i" class="col p-2">
-                {{ tech[0].nome_tecnologia }}
-
-                <div v-for="name in tech">
-                    {{ name.nome_tecnologia }}
-                </div>
+                {{ tech.nome_tecnologia }}
             </div>
         </div>
     </div>
@@ -30,4 +27,10 @@ export default {
 <style lang="scss" scoped>
 //Scss relativo alla sola sezione di header
 @use "../styles/partials/variables" as *;
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: $secondary;
+}
 </style>
