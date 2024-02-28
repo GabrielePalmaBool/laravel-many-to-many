@@ -75,14 +75,10 @@ class MainController extends Controller
     public function storeP(ErorrsMessages $request)
     {
         $data = $request->all();
-
+        
         $img = $data['img_riferimento'];
         
-        //$img_path = Storage :: disk('public') -> put('images', $img);
-
-        if ( Storage::disk('local')->put('images', $img) ) {
-            $img_path  = 'images/' . $img;
-        }
+        $img_path = Storage :: disk('public') -> put('images', $img);
 
         $newProject = new Project();
 

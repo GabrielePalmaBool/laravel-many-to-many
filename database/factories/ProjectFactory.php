@@ -18,7 +18,7 @@ class ProjectFactory extends Factory
     {
         return [
             'nome_progetto'=>fake()->name($gender = null),
-            'img_riferimento'=>fake()->imageUrl(640, 480, 'projects', true),
+            'img_riferimento'=>null,
             'descrizione'=>fake()->paragraph(),
             'data_pubblicazione'=>fake()->dateTimeBetween(),
         ];
