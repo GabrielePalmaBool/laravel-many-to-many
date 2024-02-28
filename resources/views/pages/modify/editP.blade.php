@@ -28,7 +28,7 @@
             <th>MODIFICA</th>
         </tr>
     
-    <form action="{{route('projects.updateProject', $project -> id)}}" method="POST">
+    <form action="{{route('projects.updateProject', $project -> id)}}" method="POST" enctype="multipart/form-data">
 
         @csrf
         @method('PUT')

@@ -144,10 +144,16 @@ class MainController extends Controller
     {
         $data = $request->all();
 
+        //acquisisco file
+        $img = $data['img_riferimento'];
+
+        // Creo cartella images nel percorso :storage/public e inserisco file
+        $img_path = Storage :: disk('public') -> put('images', $img);
+
         $project = Project::find($id);
 
         $project ->nome_progetto = $data['nome_progetto'];
-        $project ->img_riferimento = $data['img_riferimento'];
+        $project ->img_riferimento = $img_path;
         $project ->descrizione = $data['descrizione'];
         $project ->data_pubblicazione = $data['data_pubblicazione'];
 
